@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    color: var(--light-cyan);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  /* Color Scheme for the site */
+  :root {
+    --dark-blue: #1d3461;
+    --green: #1a936f;
+    --blue-grey: #7389ae;
+    --light-cyan: #cffcff;
+  }
+  /* Header and Nav Style Start */
+  header {
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    color: var(--light-cyan);
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  header a {
+    text-decoration: none;
+    color: var(--light-cyan);
+  }
+  header nav {
+    margin: 7px 0;
+  }
+  header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-top: 10px;
+    width: 100%;
+  }
+  header nav ul button {
+    padding: 10px 15px;
+    font-weight: lighter;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    color: var(--light-cyan);
+  }
+  header nav ul button:hover {
+    text-decoration: none;
+    background: var(--green);
+    color: var(--dark-blue);
+    border-radius: 15px;
+  }
+  .name:hover {
+    text-decoration: none;
+    background: var(--green);
+    color: var(--dark-blue);
+    border-radius: 15px;
+  }
+  /* Header and Nav Style End */
+  
+  /* Shared Style Start */
+  section {
+    padding: 30px 15px;
+  }
+  .section-title {
+    font-size: 48px;
+    color: var(--blue-grey);
+    border-bottom: 3px solid;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+    width: 95%;
+  }
+  .primary-border {
+    border-color: var(--light-cyan)
+  }
+  .secondary-border {
+    border-color: var(--dark-blue);
+  }
+  .flex-row {
+    display: flex;
+  }
+  /* Shared Style End */
+  
+  /* About Me Style Start */
+  .about-section {
+    background: var(--blue-grey);
+  }
+  .about-section h2 {
+    color: var(--light-cyan);
+  }
+  .headshot {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .headshot img {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  .about-text {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-text p {
+    text-align: center;
+    font-size: 17px;
+  }
+  /* About Me Style End */
+  
+  /* Work Style Start */
+  .link {
+    text-decoration: none;
+    color: var(--light-cyan);
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  /* Work Style End */
+  
+  /* Contact Me Style Start */
+  .contact-section {
+    background-color: var(--blue-grey);
+  }
+  
+  .contact-section h2 {
+    color: var(--light-cyan);
+  }
+  
+  .form {
+    width: 75%;
+  }
+  
+  .formMessage {
+    width: 95%
+  }
+  /* Contact Me Style End*/
+  
+  /* Resume Style Start */
+  .resume {
+    margin: 30px 0 30px 0;
+  }
+  
+  .resume a {
+    text-decoration: none;
+    border: none;
+    color: var(--light-cyan);
+  }
+  
+  .resume a:hover {
+    background: none;
+    color: var(--dark-blue);
+  }
+  /* Resume Style End */
+  
+  /* Footer Style Start */
+  footer {
+    background: var(--dark-blue);
+    width: 100%;
+    padding: 40px 35px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .icon {
+    text-decoration: none;
+    color: var(--light-cyan);
+    margin: 0 10px 0 20px;
+  }
+  
+  .icon:hover {
+    color: var(--blue-grey);
+  }
+  /* Footer Style End */
+  
+  /* Media Queries for screens over 576px (Tablet Screens) */
+  @media screen and (min-width: 576px) {
+    .section-title {
+        width: 80%;
+    }
+    .about-text p {
+        font-size: 20px;
+    }
+    .form {
+      width: 40%;
+    }
+    .formMessage {
+      width: 75%
+    }
+  }
+  
+  /* Media Queries for screens over 769px (Small Desktop Screens) */
+  @media screen and (min-width: 769px) {
+    header h1 {
+        font-size: 45px;
+    }
+    header nav ul a {
+        font-size: 30px;
+    }
+    .headshot img {
+        height: 200px;
+        width: 200px;
+    }
+    .about-text p {
+        font-size: 25px;
+    }
+    .form {
+      width: 40%;
+    }
+    .formMessage {
+      width: 60%
+    }
+  }
+  
+  /* Media Queries for screens over 981px (Large Desktops/Screens) */
+  @media screen and (min-width: 981px) {
+    header {
+        justify-content: space-between;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+    }
+    header h1 {
+        width: auto;
+    }
+    .section-title {
+        width: 75%;
+    }
+    .about-me-info {
+        display:flex;
+        flex-flow: row;
+    }
+    .about-text p {
+        font-size: 22px;
+    }
+    .form {
+      width: 20%;
+    }
+    .formMessage {
+      width: 35%
+    }
+  }
