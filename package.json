@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/diegorodd/React-Portfolio/issues"
   },
-  "homepage": "https://github.com/diegorodd/React-Portfolio#readme"
+  "homepage": "https://github.com/diegorodd/React-Portfolio/",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "create-react-app": "^5.0.1",
+    "gh-pages": "^4.0.0"
+  }
 }
