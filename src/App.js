@@ -1,39 +1,46 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import About from './components/About';
-import Portfolio from './components/Portfolio';
-import Resume from './components/Resume';
-import ContactForm from './components/Contact';
-import Footer from './components/Footer';
+import React, { useState } from 'react'
+import About from './components/About'
+import Nav from './components/Nav'
+import Project from './components/Project'
+import ContactForm from './components/Contact'
+import Resume from './components/Resume'
+import Footer from './components/Footer'
 
 function App() {
-  const [currentNavSection, handleSectionChange] = useState('About Me');
-
-  const renderSection = () => {
-    switch (currentNavSection) {
-      case 'Portfolio': return <Portfolio />;
-      case 'Contact': return <ContactForm />;
-      case 'Resume': return <Resume />;
-      default: return <About />;
-    }
-  };
+  const [contactSelected, setContactSelected] = useState(false)
+  const [portfolioSelected, setPortfolioSelected] = useState(false)
+  const [resumeSelected, setResumeSelected] = useState(false)
 
   return (
     <div>
-      <Header 
-          currentNavSection={currentNavSection}
-          handleSectionChange={handleSectionChange}
-      />
+      <Nav
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
+        portfolioSelected={portfolioSelected}
+        setPortfolioSelected={setPortfolioSelected}
+        resumeSelected={resumeSelected}
+        setResumeSelected={setResumeSelected}
+      ></Nav>
       <main>
-        <div>
-          {renderSection(currentNavSection)}
-        </div>
+        {contactSelected ? (
+          <>
+            <ContactForm></ContactForm>
+          </>
+        ) : portfolioSelected ? (
+          <>
+            <Project></Project>
+          </>
+        ) : resumeSelected ? (
+          <>
+            <Resume></Resume>
+          </>
+        ) : (
+          <About></About>
+        )}
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer></Footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

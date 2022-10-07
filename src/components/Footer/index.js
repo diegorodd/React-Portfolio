@@ -1,19 +1,37 @@
-import React from 'react';
-// import GitHubIcon from '@material-ui/icons/GitHub';
-// import EmailIcon from '@material-ui/icons/Email';
+import React from 'react'
+import gitLogo from '../../assets/github-512.webp'
+import linkLogo from '../../assets/linkedinlogo.png'
+import twitterLogo from '../../assets/twitterLogo.png'
 
 function Footer() {
-    
-    return (
-        <section>
-            <div>
-            <a className="icon" target="_blank" rel="noreferrer" href="https://github.com/diegorodd"><GithubIcon fontSize="large"/></a>
-            
-
-
-            </div>
-            </section>
-    )
+  return (
+    <section className="footer-container">
+      <a href="https://github.com/diegorodd">
+        <img
+          src={gitLogo}
+          className="footer-logo-git"
+          style={{ width: '3%' }}
+          alt="logo"
+        />
+      </a>
+      <a href="https://www.linkedin.com/in/diego-andres-rodriguez-923990246/">
+        <img
+          src={linkLogo}
+          className="footer-logo-linkedin"
+          style={{ width: '3%' }}
+          alt="logo"
+        />
+      </a>
+      <a href="https://twitter.com/home">
+        <img
+          src={twitterLogo}
+          className="footer-logo-twitter"
+          style={{ width: '3%' }}
+          alt="logo"
+        />
+      </a>
+    </section>
+  )
 }
 
-export default Footer;
+export default Footer

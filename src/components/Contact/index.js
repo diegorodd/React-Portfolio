@@ -1,67 +1,83 @@
-import React, { useState } from 'react';
-import { validateEmail } from '../../utils/helpers';
-import { Form, Button } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { validateEmail } from '../../utils/helpers'
 
 function ContactForm() {
-    const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-    const { name, email, message } = formState;
+  const [errorMessage, setErrorMessage] = useState('')
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+  const { name, email, message } = formState
 
-    const [errorMessage, setErrorMessage] = useState('');
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log(formState)
+  }
 
-    function handleChange(e) {
-        if (e.target.name === 'email') {
-            const isValid = validateEmail(e.target.value);
-
-            if (!isValid) {
-                setErrorMessage('Your email address is not valid');
-            } else {
-                setErrorMessage('');
-            }
-        } else {
-            if (!e.target.value.length) {
-                setErrorMessage(`${e.target.name} is required`);
-            } else {
-                setErrorMessage('');
-            }
-        }
-
-        if (!errorMessage) {
-            setFormState({ ...formState, [e.target.name]: e.target.value });
-        }
+  function handleChange(e) {
+    if (e.target.name === 'email') {
+      const isValid = validateEmail(e.target.value)
+      if (!isValid) {
+        setErrorMessage('Your email is invalid.')
+      } else {
+        setErrorMessage('')
+      }
+    } else {
+      if (!e.target.value.length) {
+        setErrorMessage(`${e.target.name} is required.`)
+      } else {
+        setErrorMessage('')
+      }
     }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(formState);
+    if (!errorMessage) {
+      setFormState({ ...formState, [e.target.name]: e.target.value })
     }
+    console.log('errorMessage', errorMessage)
+  }
 
-    return (
-        <section className='contact-section'>
-            <h2 className='section-title primary-border'>
-                Contact Me
-            </h2>
-            <Form id='contact-form' onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label htmlFor='name'>Name:</Form.Label>
-                    <Form.Control type='text' defaultValue={name} onBlur={handleChange} name='name' className='form' />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label htmlFor='email'>Email Address:</Form.Label>
-                    <Form.Control type='email' defaultValue={email} onBlur={handleChange} name='email' className='form' />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label htmlFor='message'>Message:</Form.Label>
-                    <Form.Control as="textarea" name='message' defaultValue={message} onBlur={handleChange} rows={5} className='formMessage' />
-                    {errorMessage && (
-                        <div>
-                            <p>{errorMessage}</p>
-                        </div>
-                    )}
-                    <Button variant='primary' type='submit' className='mt-3'>Submit</Button>
-                </Form.Group>
-            </Form>
-        </section>
-    )
+  return (
+    <section>
+      <h1>Contact me</h1>
+      <form id="contact-form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            defaultValue={name}
+            onChange={handleChange}
+            name="name"
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email address:</label>
+          <input
+            type="email"
+            name="email"
+            defaultValue={email}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="message">Message:</label>
+          <textarea
+            name="message"
+            defaultValue={message}
+            onChange={handleChange}
+            rows="5"
+          />
+        </div>
+        {errorMessage && (
+          <div>
+            <p className="error-text">{errorMessage}</p>
+          </div>
+        )}
+        <button data-testid="button" type="submit">
+          Submit
+        </button>
+      </form>
+    </section>
+  )
 }
 
-export default ContactForm;
+export default ContactForm
